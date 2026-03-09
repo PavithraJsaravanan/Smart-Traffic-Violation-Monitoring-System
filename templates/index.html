@@ -1,0 +1,31 @@
+<h2>Traffic Violations</h2>
+
+<a href="/add">Add Violation</a>
+
+<table border="1">
+<tr>
+<th>Vehicle</th>
+<th>Violation</th>
+<th>Location</th>
+<th>Date</th>
+<th>Fine</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+{% for v in violations %}
+<tr>
+<td>{{v.vehicle_number}}</td>
+<td>{{v.violation_type}}</td>
+<td>{{v.location}}</td>
+<td>{{v.date}}</td>
+<td>{{v.fine_amount}}</td>
+<td>{{v.status}}</td>
+<td>
+<a href="/pay/{{v.id}}">Mark Paid</a>
+<a href="/qr/{{v.id}}">QR</a>
+</td>
+</tr>
+{% endfor %}
+
+</table>
